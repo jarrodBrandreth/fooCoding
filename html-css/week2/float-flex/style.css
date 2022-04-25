@@ -1,0 +1,436 @@
+:root {
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+  --main--blue: #0046bf;
+  --pop-color: #ffd700; /* alternate color #FEEF22 */
+  --paragraph-font-color: rgb(103, 102, 102);
+  background-color: #f0f8ff;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+/*---title styling---*/
+header {
+  background-color: var(--main--blue);
+  color: #ffffff;
+}
+
+h1 {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+  letter-spacing: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+h1::before {
+  content: "";
+  position: relative;
+  right: 3px;
+  width: 0px;
+  height: 0px;
+  border-top: 12.5px solid transparent;
+  border-bottom: 12.5px solid transparent;
+  border-left: 25px solid var(--pop-color);
+}
+
+h2 {
+  /* position: sticky; */
+  /* top: 0px; */
+  text-transform: capitalize;
+  padding: 5px;
+  margin-bottom: 30px;
+  text-align: center;
+  background-color: var(--pop-color);
+  color: var(--main--blue);
+  /* z-index: 51; */
+}
+
+/*set height for h3 so titles line up nice*/
+h3 {
+  width: 90%;
+  margin: auto;
+  padding: 10px;
+  height: 55px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+/*sale h3 pseudo element*/
+section li:first-child h3::after {
+  position: relative;
+  left: 5px;
+  content: "SALE";
+  font-size: 0.9em;
+  padding: 1.2%;
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+/*general img tag sizing*/
+img {
+  width: 92%;
+  display: block;
+  height: auto;
+  background-color: #ffffff;
+  margin: auto auto 20% auto;
+}
+
+p {
+  color: var(--paragraph-font-color);
+}
+
+/*---general ul and list styling---*/
+ul {
+  list-style: none;
+}
+
+/* styling for all li items */
+ul li {
+  position: relative;
+  width: 43%;
+  padding: 0px 0px 10px 0px;
+  margin: 3.5%;
+  border-radius: 15px;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.161);
+  background-color: #ffffff;
+}
+
+/* set styles for all li except first sale item */
+li:nth-child(n + 2) p {
+  position: absolute;
+  top: 80%;
+  width: 100%;
+  height: 35px;
+  overflow: hidden;
+  padding: 0px 5px 10px 5px; /*adds button moving effect because padding changes on hover */
+}
+
+/* paragraph more info pseudo element */
+li:nth-child(n + 2) p::before {
+  position: relative;
+  content: "More Info";
+  display: inline-block;
+  width: 50%;
+  margin: 10px 25%;
+  text-align: center;
+  font-weight: bold;
+  background-color: #0046bf;
+  border-radius: 5px;
+  padding: 1% 0px;
+  color: #ffffff;
+  font-size: 0.875rem;
+}
+
+/* paragraph pseudo class */
+li:nth-child(n + 2) p:hover,
+li:nth-child(n + 2) p:focus {
+  height: fit-content;
+  overflow: visible;
+  box-shadow: 0px 14px 15px -7px rgba(0, 0, 0, 0.347); /* 1px 14px 10px rgba(0, 0, 0, 0.347); */
+  border-radius: 15px;
+  background-color: #ffffff;
+}
+
+/* first item unique styles */
+ul li:first-child {
+  width: 90%;
+  margin: auto;
+}
+
+ul li:first-child p {
+  width: 80%;
+  margin: auto;
+}
+
+ul li:first-child img {
+  width: 80%;
+  margin: 0px auto 10px auto;
+}
+
+/*--grid-float layout--*/
+#grid-floats li:nth-child(n + 2) {
+  float: left;
+}
+
+/*makes it so the first section element doesnt collapse enabling sticky heading */
+#grid-floats li:last-child {
+  float: none;
+  display: inline-block;
+}
+
+/* clears second section so floats dont interrupt */
+section:nth-of-type(2) {
+  clear: both;
+}
+
+/* --grid-flex layouts-- */
+#grid-flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+section {
+  margin-bottom: 25vh; /* section style to prevent overflow */
+}
+
+/* media query for tablets */
+@media (min-width: 750px) {
+  /* title styling tablet */
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h1::before {
+    content: "";
+    position: relative;
+    right: 7px;
+    width: 0px;
+    height: 0px;
+    border-top: 25px solid transparent;
+    border-bottom: 25px solid transparent;
+    border-left: 50px solid var(--pop-color);
+  }
+
+  h1::after {
+    content: " - 'your one stop shop !'";
+    font-size: 1rem;
+    letter-spacing: normal;
+    font-style: italic;
+  }
+
+  h3 {
+    background-color: #ffffff;
+    font-size: 1.3rem;
+  }
+
+  li:nth-child(n + 2) p::before {
+    font-size: 1rem;
+  }
+
+  /* increases padding for bigger screens */
+  li:nth-child(n + 3) p {
+    padding: 0px 10px 10px 10px;
+  }
+
+  /* adds a darker box shadow on hover*/
+  li:nth-child(n + 3) p:hover,
+  li:nth-child(n + 3) p:focus {
+    box-shadow: 4px 14px 15px rgba(0, 0, 0, 0.347);
+  }
+
+  ul {
+    width: 98%;
+    margin: auto;
+  }
+
+  ul li {
+    width: 30%;
+    margin: 2.4% 1.64%;
+  }
+
+  ul li:hover,
+  ul li:focus {
+    box-shadow: 4px 5px 15px rgba(0, 0, 0, 0.509);
+  }
+
+  /* first item unique styles */
+  ul li:first-child {
+    width: 45%;
+    height: 450px;
+    float: left;
+    margin: 2.5%;
+  }
+
+  /* second child unique styles for tablet */
+  ul li:nth-child(2) {
+    width: 45%;
+    height: 450px;
+    margin: 2.5%;
+  }
+
+  ul li:nth-child(2) p {
+    position: static;
+    width: 80%;
+    height: auto;
+    margin: auto;
+  }
+
+  ul li:nth-child(2) p::before {
+    display: none;
+  }
+
+  /* removes hover effect */
+  ul li:nth-child(2) p {
+    pointer-events: none;
+  }
+
+  ul li:nth-child(2) img {
+    width: 80%;
+    margin: 0px auto 10px auto;
+  }
+
+  li::before {
+    content: "BUY ME";
+    position: absolute;
+    top: 0px;
+    left: 35px;
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 5px 7px 10px 7px;
+    border-radius: 5px;
+    background-color: #ffd700;
+    color: blue;
+    z-index: -1;
+  }
+
+  li:hover::before,
+  li:focus::before {
+    animation-name: slide-up;
+    animation-duration: 1.2s;
+    animation-fill-mode: forwards;
+  }
+
+  /* animation for BUY ME pseudo element */
+  @keyframes slide-up {
+    from {
+      top: 0px;
+    }
+
+    to {
+      top: -30px;
+    }
+  }
+}
+
+/* media query for desktops */
+@media (min-width: 1000px) {
+  ul {
+    max-width: 1500px;
+    margin: auto;
+  }
+
+  /* moves grid-floats paragraph up a bit to help with spacing */
+  #grid-floats li:nth-child(n + 2) p {
+    top: 75%;
+  }
+
+  #grid-floats li {
+    height: 400px;
+    margin: 40px 1% 1% 1%;
+  }
+
+  #grid-floats img {
+    max-width: 350px;
+  }
+
+  #grid-flex li {
+    margin: 40px 1% 1% 1%;
+  }
+
+  /* width adjustments */
+  ul li {
+    width: 23%;
+  }
+
+  ul li:first-child {
+    width: 48%;
+  }
+
+  ul li:first-child img {
+    width: 60%;
+  }
+
+  /* second child unique styles */
+  /* second child resetting styles for desktop back to match others */
+  ul li:nth-child(2) {
+    width: 23%;
+    height: auto;
+  }
+
+  /* sets second li child back to match other childs in desktop view */
+  ul li:nth-child(2) p {
+    pointer-events: all;
+    position: absolute;
+    width: 100%;
+    margin: 0%;
+    height: 35px;
+    overflow: hidden;
+    background-color: #fff;
+    padding: 0px 10px 10px 10px;
+  }
+
+  ul li:nth-child(2) p::before {
+    position: relative;
+    content: "More Info";
+    display: inline-block;
+    width: 40%;
+    margin: 10px 30%;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  ul li:nth-child(2) p:hover,
+  ul li:nth-child(2) p:focus {
+    height: fit-content;
+    overflow: visible;
+    box-shadow: 4px 14px 15px rgba(0, 0, 0, 0.347);
+  }
+
+  /*selects all li items  except first child*/
+  ul li:nth-child(n + 2) img {
+    width: 92%;
+    margin: 15px auto 20% auto;
+  }
+
+  li:nth-child(n + 2) p::before {
+    width: 40%;
+    margin: 10px 30%;
+  }
+}
+
+/* z-index so drop down displays over */
+
+ul li:nth-child(2),
+ul li:nth-child(3) {
+  z-index: 50;
+}
+
+ul li:nth-child(4),
+ul li:nth-child(5) {
+  z-index: 49;
+}
+
+ul li:nth-child(6),
+ul li:nth-child(7) {
+  z-index: 48;
+}
+
+ul li:nth-child(8),
+ul li:nth-child(9) {
+  z-index: 47;
+}
+
+ul li:nth-child(10),
+ul li:nth-child(11) {
+  z-index: 46;
+}
+
+ul li:nth-child(12),
+ul li:nth-child(13) {
+  z-index: 45;
+}
+
+ul li:nth-child(14) {
+  z-index: 44;
+}
