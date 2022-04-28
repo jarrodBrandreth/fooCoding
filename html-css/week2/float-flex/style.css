@@ -226,6 +226,7 @@ section {
   /* adds a darker box shadow on hover*/
   li:nth-child(n + 3) p:hover,
   li:nth-child(n + 3) p:focus {
+    display: block; /*. testing this idea remove if doesnt work---------------------*/
     box-shadow: 4px 14px 15px rgba(0, 0, 0, 0.347);
   }
 
