@@ -435,11 +435,3 @@ ul li:nth-child(14) {
   z-index: 44;
 }
 
-/* testing */
-img:hover {
-  background-color:red;
-}
-
-img:hover + p {
-  background-color: blue;
-}
