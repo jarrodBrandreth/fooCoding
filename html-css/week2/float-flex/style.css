@@ -241,8 +241,6 @@ section {
 
   ul li:hover,
   ul li:focus {
-     display: block; /*. testing this idea remove if doesnt work---------------------*/
-    cursor:pointer;
     box-shadow: 4px 5px 15px rgba(0, 0, 0, 0.509);
   }
 
@@ -435,4 +433,13 @@ ul li:nth-child(13) {
 
 ul li:nth-child(14) {
   z-index: 44;
+}
+
+/* testing */
+img:hover {
+  background-color:red;
+}
+
+img:hover + p {
+  background-color: blue;
 }
