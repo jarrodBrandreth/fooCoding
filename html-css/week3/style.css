@@ -1,0 +1,810 @@
+:root {
+  --serif-font: "Roboto Slab", serif;
+  --sans-serif-font: "Montserrat", sans-serif;
+  --cursive-font: "Satisfy", cursive;
+  --green-shade: #35733c;
+  --orange-shade: #e94e0f;
+  --blue-shade: #7ab7bc;
+  --black-shade: #333;
+  font-family: var(--serif-font);
+  color: var(--black-shade);
+}
+
+*,
+*::before,
+*:after {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  line-height: 1.4;
+  margin: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+p {
+  line-height: 1.4;
+}
+
+.container,
+.quote-wrap {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* --- header styles begin --- */
+header {
+  position: relative;
+  background: url(./images/bg-header-muumimuseo.png) 100% 0 no-repeat #fff;
+}
+
+.mobile-navi-container {
+  display: none;
+}
+
+header .languages {
+  font-size: 1.5rem;
+  position: absolute;
+  top: 25%;
+  right: 8%;
+}
+
+header .container {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.logo.Muumimuseo {
+  margin: 15px 20px;
+}
+
+.menu-item {
+  position: relative;
+  display: inline-block;
+  padding-right: 15px;
+  font-family: var(--sans-serif-font);
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+}
+
+.menu-item a {
+  display: block;
+  padding-bottom: 40px;
+}
+
+.menu-item a:hover {
+  text-decoration: underline;
+}
+
+.menu-item a:hover + .sub-menu {
+  visibility: visible;
+}
+
+/* sub menu styles start */
+.sub-menu {
+  visibility: hidden;
+  width: 220px;
+  position: absolute;
+  top: 60px;
+  color: #fff;
+  background-color: var(--green-shade);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-transform: none;
+  font-size: 16px;
+  padding: 20px;
+  z-index: 20;
+}
+
+.sub-menu:hover {
+  visibility: visible;
+}
+
+.sub-menu li {
+  margin: 10px 0px 5px 0px;
+}
+
+/* mimmick a link for display purposes only */
+.sub-menu li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+/* sub menu styles end */
+
+/* --- header styles end --- */
+
+/* ---front mainbanner start--- */
+.front-mainbanner {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+}
+
+.front-mainbanner img {
+  width: 100%;
+  height: 100%;
+}
+
+.main-banner-text-container {
+  grid-area: 3/2/4/5;
+  position: relative;
+  top: -30px;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+  background-color: #fff;
+  padding: 0px 85px;
+}
+
+.main-banner-text-container h1 {
+  color: var(--green-shade);
+  font-size: 2.2rem;
+  font-weight: 400;
+}
+
+.main-banner-text-container h2 {
+  align-self: start;
+  font-size: 1.7rem;
+  font-weight: 400;
+}
+
+.circle-orange {
+  font-family: var(--cursive-font);
+  color: #fff;
+  background-color: var(--orange-shade);
+  border-radius: 50%;
+  text-align: center;
+  width: 120px;
+  height: 120px;
+  font-size: 2.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-banner-text-container .circle-orange-wrap {
+  position: absolute;
+  right: -30px;
+  bottom: -25px;
+}
+
+.front-mainbanner-top {
+  grid-area: 1/1/3/6;
+}
+
+.front-mainbanner-bottom {
+  grid-area: 3/1/5/6;
+}
+/* ---front mainbanner end--- */
+
+/* ---front info styles start--- */
+.front-info {
+  position: relative;
+  background-color: var(--green-shade);
+  color: #fff;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 300;
+  text-align: center;
+  height: 70px;
+  padding: 0px 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front-info-block-card {
+  position: absolute;
+  right: 20px;
+  top: 12px;
+}
+/* ---front info styles end--- */
+
+/* ---eyes-title start--- */
+.eyes-title .front-title-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #363636;
+}
+
+.eyes-title h2 {
+  font-size: 50px;
+  font-weight: 400;
+  color: #fff;
+}
+
+.eyes-title .eyes-right {
+  order: 1;
+}
+/* ---eyes-title end--- */
+
+/* ---exhibition content start---*/
+
+/* removes extra carousel pics because no script to make carousel */
+.carousel-inner .item:nth-child(n + 2) {
+  display: none;
+}
+
+.exhibition-content {
+  display: grid;
+  grid-template-areas: "carousel carousel obvs mummy";
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.exhibition-content div:nth-child(1) {
+  grid-area: carousel;
+}
+
+#upcoming-events-carousel {
+  position: relative;
+}
+
+.left-carousel-control,
+.right-carousel-control {
+  position: absolute;
+  top: 45%;
+  color: #fff;
+  font-size: 40px;
+  z-index: 5;
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.696);
+}
+
+.left-carousel-control {
+  left: 20px;
+}
+
+.right-carousel-control {
+  right: 20px;
+}
+
+.front-news-text {
+  padding: 30px;
+}
+
+.front-news-text a,
+.front-news-date {
+  color: var(--green-shade);
+}
+
+.front-news-text h2 {
+  font-size: 30px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.front-news-text p {
+  margin-bottom: 10px;
+  line-height: 1.1;
+}
+
+.exhibition-content img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---exhibition content end---*/
+
+/*--- current affairs start ---*/
+.container.current {
+  background-color: #7ab7bc;
+}
+.current .front-event-block {
+  position: relative;
+  color: #404041;
+  text-align: center;
+  padding: 40px;
+}
+
+.current .front-event-block h2 {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.current .front-event-block h3 {
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}
+
+.current .front-event-block .text-block {
+  width: 50%;
+  margin: auto;
+}
+
+.front-event-block .circle-orange-wrap {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+}
+
+/*--- current affairs end ---*/
+
+/* ---affairs picture paragraph start --- */
+
+/* adjacent sibling selector to select first affair */
+div.current + div.affairs .content-block-text {
+  width: 67%;
+  padding: 30px 15px;
+}
+
+div.current + div.affairs .content-image {
+  width: 33%;
+}
+
+div.current + div.affairs + div.affairs .content-block-text {
+  order: 1;
+}
+
+.affairs img {
+  width: 100%;
+  height: auto;
+}
+
+.affairs {
+  display: flex;
+  padding: 0px 15px;
+}
+
+.affairs .content-block-text {
+  width: 50%;
+  padding: 30px;
+}
+
+.affairs h2,
+.affairs p {
+  margin-bottom: 10px;
+}
+
+.quote-wrap {
+  text-align: center;
+  padding: 30px 0px;
+}
+
+.quote-block {
+  font-family: var(--cursive-font);
+  font-size: 38px;
+  margin-bottom: 10px;
+}
+
+.quote-name {
+  font-size: 30px;
+  padding-top: 20px;
+  color: var(--green-shade);
+}
+/* ---affairs picture paragraph end --- */
+
+/* --- footer styles start --- */
+.site-links {
+  background-color: #fff;
+  width: 90%;
+  margin: auto;
+  padding: 100px 0px 60px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.site-links img {
+  display: block;
+  margin: auto;
+}
+
+.site-links-logo {
+  flex-basis: calc(100% / 3);
+}
+
+.footer-navigation {
+  background: url(./images/bg-footer-navi.jpeg);
+  background-size: cover;
+  padding: 70px 0px;
+}
+
+.footer-navigation a:hover {
+  text-decoration: underline;
+}
+
+.footer-navigation .container {
+  display: flex;
+}
+
+.footer-navi-block {
+  flex-basis: calc(100% / 6);
+  padding: 0px 15px;
+  font-size: 13px;
+}
+
+.footer-navi-block h4 {
+  margin: 15px 0px;
+  font-size: 1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+/* moomin museum link list */
+.footer-company,
+.address p {
+  margin-bottom: 10px;
+}
+.footer-phone {
+  margin: 20px 0px;
+}
+
+.footer-navi-block .btn {
+  display: block;
+  text-align: center;
+  border: 2px solid #fff;
+  width: 140px;
+  margin: 10px 0px;
+  padding: 5px 10px;
+  letter-spacing: 1px;
+}
+
+.footer-navi-block a,
+div.footer-navi-block {
+  color: #fff;
+}
+
+.container.footer-logos {
+  width: 90%;
+  padding: 30px 15px;
+  display: flex;
+  align-items: center;
+}
+
+.footer-logos-block {
+  flex-basis: calc(100% / 3);
+}
+
+.footer-logos-block ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.footer-logos-block ul li {
+  font-size: 20px;
+  padding: 5px;
+}
+
+.footer-logos-block i {
+  color: var(--green-shade);
+}
+
+.footer-logos-block .list-inline-footer-ul li {
+  font-size: 14px;
+  text-align: end;
+}
+
+.container.footer-logos div:nth-child(2) img {
+  display: block;
+  margin: auto;
+}
+
+footer {
+  width: 100vw;
+  font-family: var(--sans-serif-font);
+  font-size: 14px;
+}
+
+/* --- footer styles end --- */
+@media (max-width: 1200px) {
+  .mobile-navi-container {
+    display: block;
+    position: relative;
+    right: 30px;
+    width: 55px;
+    height: 42px;
+  }
+
+  header .container {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo.Muumimuseo {
+    margin: 0px;
+    padding: 20px 20px 0px 20px;
+  }
+
+  .hamburger-menu {
+    padding: 8px;
+  }
+  .bar1,
+  .bar2,
+  .bar3 {
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    margin-bottom: 7px;
+    background-color: #32804b;
+  }
+
+  #main-navigation {
+    display: none;
+  }
+  .languages {
+    display: none;
+  }
+
+  header .container {
+    height: auto;
+    width: 100%;
+  }
+
+  header {
+    background: none;
+    width: 100%;
+  }
+
+  .container,
+  .quote-wrap,
+  .site-links,
+  .container.footer-logos {
+    width: 940px;
+  }
+
+  .site-links-logo {
+    flex-basis: calc(940px / 3);
+  }
+}
+
+@media (max-width: 996px) {
+  .container,
+  .quote-wrap,
+  .site-links,
+  .container.footer-logos {
+    width: 750px;
+  }
+
+  .front-info-block-card {
+    position: relative;
+    right: 0px;
+    top: 0px;
+    margin: 10px 0px;
+  }
+
+  .front-info {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 25px 15px 15px 15px;
+  }
+
+  .front-mainbanner {
+    grid-template-rows: 208px 194px 244px;
+  }
+
+  .main-banner-text-container {
+    grid-area: 2/1/3/6;
+    padding: 0px 155px;
+    top: 0px;
+  }
+
+  .main-banner-text-container .circle-orange-wrap {
+    bottom: 0px;
+    right: 10px;
+  }
+
+  .front-mainbanner-top {
+    grid-area: 1/1/2/6;
+  }
+
+  .front-mainbanner-bottom {
+    grid-area: 3/1/4/6;
+  }
+
+  .exhibition-content {
+    grid-template-areas:
+      "carousel obvs"
+      "mummy . ";
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .exhibition-content div:nth-child(2) {
+    grid-area: obvs;
+  }
+
+  .exhibition-content div:nth-child(3) {
+    grid-area: mummy;
+  }
+
+  .current .front-event-block {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 0px;
+    margin: 0px;
+  }
+
+  .current .front-event-block .text-block {
+    width: 100%;
+  }
+
+  .front-event-block .circle-orange-wrap {
+    position: static;
+    margin: 15px 0px;
+  }
+
+  div.current + div.affairs .content-block-text {
+    width: 100%;
+  }
+
+  div.current + div.affairs .content-image {
+    width: 100%;
+  }
+
+  .affairs .content-block-text {
+    width: 100%;
+  }
+
+  .affairs {
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0px;
+  }
+
+  .affairs img {
+    width: 720px;
+    height: auto;
+  }
+
+  .quote-wrap {
+    padding: 30px;
+  }
+
+  .quote-block {
+    font-size: 36px;
+  }
+
+  .container.site-links {
+    flex-direction: column;
+    padding: 0px;
+  }
+
+  .site-links-logo {
+    flex-basis: 100%;
+    margin: 45px;
+  }
+
+  .footer-navigation .container {
+    flex-wrap: wrap;
+  }
+
+  .footer-navi-block {
+    flex-basis: calc(100% / 3);
+  }
+
+  .footer-logos-block .list-inline-footer-ul:nth-child(1) {
+    width: 476px;
+  }
+}
+
+@media (max-width: 765px) {
+  .container,
+  .quote-wrap,
+  .site-links,
+  .container.footer-logos {
+    width: 95%;
+  }
+
+  .eyes-title .front-title-block {
+    height: 200px;
+    justify-content: center;
+  }
+
+  .eyes-title h2 {
+    font-size: 32px;
+  }
+
+  .eyes-right img,
+  .eyes-left img {
+    width: 100%;
+  }
+
+  .affairs img {
+    width: 100%;
+  }
+
+  .carousel-inner .item,
+  .left-carousel-control,
+  .right-carousel-control {
+    display: none;
+  }
+
+  .exhibition-content {
+    display: grid;
+    grid-template-areas:
+      "carousel"
+      "obvs"
+      "mummy";
+    grid-template-columns: 1fr;
+  }
+
+  .quote-block {
+    font-size: 20px;
+  }
+
+  .footer-navi-block {
+    flex-basis: calc(100% / 2);
+  }
+
+  .container.footer-logos div:nth-child(2) img {
+    margin: 0px;
+  }
+
+  .container.footer-logos {
+    display: block;
+    text-align: start;
+  }
+
+  .footer-logos-block {
+    margin-top: 10px;
+  }
+
+  .footer-logos-block .list-inline-footer-ul:nth-child(1) {
+    width: auto;
+  }
+
+  .footer-logos-block .list-inline-footer-ul li {
+    display: inline-block;
+    text-align: start;
+    min-width: 50px;
+  }
+}
+
+@media (max-width: 650px) {
+  .front-mainbanner {
+    grid-template-rows: 1fr 305px 1fr;
+  }
+
+  .main-banner-text-container {
+    padding: 0px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .main-banner-text-container .circle-orange-wrap {
+    position: static;
+    display: block;
+  }
+
+  .main-banner-text-container h2 {
+    align-self: auto;
+  }
+
+  .eyes-right,
+  .eyes-left {
+    display: none;
+  }
+
+  .site-links-logo img {
+    width: 100%;
+  }
+
+  .footer-logos-block ul {
+    flex-wrap: wrap;
+  }
+}
