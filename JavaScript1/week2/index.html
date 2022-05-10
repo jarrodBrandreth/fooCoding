@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remainder Operator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="main-container">
+      <h1>Remainder Operator %</h1>
+      <p class="description">
+        The remainder operator (%) returns the remainder left over when one
+        operand is divided by a second operand.
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Remainder"
+          >more info found here</a
+        >
+      </p>
+
+      <section class="choose-container">
+        <label for="first-operand">first operand</label>
+        <input
+          id="first-operand"
+          type="number"
+          name="first-operand"
+          placeholder="choose a number"
+        />
+        <div>%</div>
+        <label for="second-operand">second operand</label>
+        <input
+          id="second-operand"
+          type="number"
+          name="second-operand"
+          placeholder="choose a number"
+        />
+      </section>
+
+      <section class="guess-container">
+        <label for="guess">Guess the remainder</label>
+        <input id="guess" type="number" name="guess" placeholder="(optional)" />
+      </section>
+
+      <button id="calculate">calculate</button>
+      <div class="outcomes">
+        <div>guess: <span id="guess-outcome"></span></div>
+        <div>answer: <span id="answer"></span></div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

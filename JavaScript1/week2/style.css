@@ -1,0 +1,50 @@
+*,
+*::before,
+::after {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+.main-container {
+  border: 2px solid #000;
+  border-radius: 20px;
+  padding: 20px;
+  width: 500px;
+  margin: 150px auto;
+  text-align: center;
+}
+
+.choose-container:nth-child(n) {
+  margin: 10px 0px;
+}
+
+.choose-container div {
+  text-align: center;
+  font-size: 2rem;
+}
+
+#calculate {
+  display: block;
+  width: 100px;
+  margin: 10px auto;
+  padding: 5px;
+  text-transform: uppercase;
+}
+
+.outcomes {
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+label {
+  display: inline-block;
+  width: 250px;
+  text-transform: capitalize;
+  text-align: end;
+  padding: 10px 5px;
+}
+
+#answer {
+  background-color: pink;
+}
