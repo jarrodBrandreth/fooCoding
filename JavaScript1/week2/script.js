@@ -167,8 +167,29 @@
     console.log(comparingInfinities); //prints yes to console   
       
 
+    //BONUS FUN
+    //Remainder Guess Calculator for html file
+    const firstOperand = document.getElementById("first-operand");
+    const secondOperand = document.getElementById("second-operand");
+    const guessNum = document.getElementById("guess");
+    const guessOutcome = document.getElementById("guess-outcome");
+    const answer = document.getElementById("answer");
+    const calculate = document.getElementById("calculate");
 
-    
+    //adds a click event and calculates remainder between two numbers with guess option
+    calculate.addEventListener("click", () => {
+      let remainder = firstOperand.value % secondOperand.value;
+      let guess = guessNum.value;
+      if (parseInt(guess) === remainder) {
+        guessOutcome.innerText = "Great you guessed right!";
+      } else if (guess !== remainder && guess !== "") {
+        guessOutcome.innerText = "You guessed wrong, try again!";
+      } else {
+        guessOutcome.innerText = "N/A";
+      }
+      answer.innerText = remainder;
+    });
+
     
 
 
