@@ -10,6 +10,9 @@
 
   <body>
     <div class="main-container">
+      <div class="assignment-p">
+        * For assignment check console or script file
+      </div>
       <h1>Remainder Operator %</h1>
       <p class="description">
         The remainder operator (%) returns the remainder left over when one
@@ -20,37 +23,40 @@
         >
       </p>
 
-      <section class="choose-container">
-        <label for="first-operand">first operand</label>
-        <input
-          id="first-operand"
-          type="number"
-          name="first-operand"
-          placeholder="choose a number"
-        />
-        <div>%</div>
-        <label for="second-operand">second operand</label>
-        <input
-          id="second-operand"
-          type="number"
-          name="second-operand"
-          placeholder="choose a number"
-        />
-      </section>
+      <label class="left-side" for="first-operand">first operand</label>
+      <input
+        id="first-operand"
+        class="right-side"
+        type="number"
+        name="first-operand"
+        placeholder="choose a number"
+      />
+      <div class="operator">%</div>
+      <label class="left-side" for="second-operand">second operand</label>
+      <input
+        id="second-operand"
+        class="right-side"
+        type="number"
+        name="second-operand"
+        placeholder="choose a number"
+      />
 
-      <section class="guess-container">
-        <label for="guess">Guess the remainder</label>
-        <input id="guess" type="number" name="guess" placeholder="(optional)" />
-      </section>
+      <label class="left-side" for="guess">Guess the remainder</label>
+      <input
+        id="guess"
+        class="right-side"
+        type="number"
+        name="guess"
+        placeholder="(optional)"
+      />
 
       <button id="calculate">calculate</button>
-      <div class="outcomes">
-        <div>guess: <span id="guess-outcome"></span></div>
-        <div>answer: <span id="answer"></span></div>
-      </div>
-      <p>for original assignment check console or script file.</p> 
+
+      <div class="left-side">guess</div>
+      <span id="guess-outcome" class="right-side"></span>
+      <div class="left-side">answer</div>
+      <span id="answer" class="right-side"></span>
     </div>
-       
 
     <script src="script.js"></script>
   </body>
