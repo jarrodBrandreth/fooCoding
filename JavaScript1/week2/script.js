@@ -115,9 +115,9 @@
     console.log(typeof iAmNum);
     console.log("I think typeof iAmString is type: string");
     console.log(typeof iAmString);
-    console.log("I think typeof iAmString is type: boolean");
+    console.log("I think typeof iAmBoolean is type: boolean");
     console.log(typeof iAmBoolean);
-    console.log("I think typeof iAmString is type: object");
+    console.log("I think typeof iAmArray is type: object");
     console.log(typeof iAmArray);
 
     /*
