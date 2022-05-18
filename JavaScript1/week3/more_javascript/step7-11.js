@@ -64,8 +64,9 @@ console.log(vehicle("red", NaN, 1)); //outputs a red new motorbike
 function createAdvertisement(array) {
   let advertisement = "Amazing Joe's Garage, we service";
   for (let i = 0; i < array.length; i++) {
-    if (i === array.length - 1) {
-      advertisement += ` ${array[i]}s.`;
+    if (i === array.length - 2) {
+      advertisement += ` ${array[i]}s and ${array[i + 1]}s.`;
+      break;
     } else {
       advertisement += ` ${array[i]}s,`;
     }
@@ -76,7 +77,7 @@ function createAdvertisement(array) {
 //TEST
 console.log(vehicleList);
 console.log(createAdvertisement(vehicleList));
-//outputs Amazing Joe's Garage, we service motorbikes, caravans, trucks, bicycles, unicycles, scooters.
+//outputs Amazing Joe's Garage, we service motorbikes, caravans, trucks, bicycles, unicycles and scooters.
 
 /*
   11.What if you add one more vehicle to the list, can you have that added to the advertisement
