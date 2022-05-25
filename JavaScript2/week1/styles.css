@@ -1,0 +1,338 @@
+:root {
+  --bb-dark-green: #0d3e10;
+  --bb-med-green: #1f6032;
+  --bb-light-green: #369457;
+  --sans-serif-font: 'Open Sans', sans-serif;
+  --serif-font: 'Lora', serif;
+  font-family: var(--serif-font);
+  color: var(--bb-dark-green);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+input,select {
+  cursor: pointer;
+}
+
+.header {
+  position: relative;
+  height: 25vh;
+  margin: 20px 20px 100px 20px;
+  background: no-repeat center/ contain url(./images/Breaking_Bad_logo.png);
+}
+
+div.title {
+  position: relative;
+  top: 100%;
+  padding: 10px;
+  text-align: center;
+}
+
+.title p {
+  margin-top: 5px;
+}
+
+.bb {
+  font-family: var(--sans-serif-font);
+  padding: 4px;
+  margin: 0px 2px;
+  background-color: #1f6032;
+  color: white;
+  border: 1px solid black;
+  letter-spacing: 2px;
+}
+
+.title .alert {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: rgb(188, 3, 3);
+}
+
+.title .alert::before {
+  content: '*';
+}
+
+.id-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.random-button-container {
+  width: 100%;
+  text-align: center;
+}
+
+.random,
+.chevron {
+  font-size: 3rem;
+  color: var(--bb-med-green);
+  cursor: pointer;
+}
+
+.random {
+  position: relative;
+}
+
+/* fix this pseudo class extends click*/
+.random::after {
+  content: '* generates random card';
+  position: absolute;
+  top: 40%;
+  left: 85%;
+  font-family: var(--sans-serif-font);
+  font-size: 14px;
+  font-weight: 400;
+  width: 200px;
+}
+
+.card-container {
+  width: 550px;
+  height: 600px;
+  margin: 20px;
+}
+
+.card {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 0.5fr repeat(2, 1fr) 0.5fr 0.5fr 0.5fr;
+  grid-template-areas:
+    'name name name '
+    'img img b-day'
+    'img img status'
+    'img img .'
+    'img img .'
+    'nickname nickname nickname';
+  text-align: center;
+  border: 2px solid black;
+}
+
+.card-img {
+  grid-area: img;
+  padding: 15px;
+}
+
+.card-img img {
+  max-height: 100%;
+}
+
+.card-name {
+  grid-area: name;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-nickname {
+  grid-area: nickname;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-nickname .value::before {
+  content: '"';
+}
+
+.card-nickname .value::after {
+  content: '"';
+}
+
+.card-birthday {
+  grid-area: b-day;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.card-status {
+  grid-area: status;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.key {
+  margin-right: 8px;
+  text-transform: capitalize;
+}
+
+.value {
+  text-transform: uppercase;
+}
+
+.filters {
+  margin: 40px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.filters label {
+  font-weight: 500;
+}
+
+.filters fieldset {
+  display: flex;
+  justify-content: space-evenly;
+  width: 250px;
+  border: none;
+  text-transform: capitalize;
+}
+
+input[type='radio'] {
+  accent-color: var(--bb-med-green);
+}
+
+.filters fieldset legend {
+  position: absolute;
+  left: -1000px;
+}
+
+.actors-section {
+  width:95%;
+  margin:10px auto;
+}
+
+.actors-section h2 {
+  margin: 0px 0px 10px 30px;
+  
+}
+
+.actors-section p {
+  margin-left: 10px ;
+}
+
+.actors-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.actor {
+  width: 10%;
+  height: 175px;
+  position: relative;
+  border: 2px solid var(--bb-med-green);
+  margin: 5px;
+  cursor: pointer;
+}
+
+.actor img {
+  height: 100%;
+}
+
+.actor-name {
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.699);
+}
+
+.quiz-section {
+  width: 80%;
+  margin: 50px auto;
+}
+
+.quiz-section h2 {
+  text-align: center;
+}
+
+
+.quiz-container {
+  visibility:hidden;
+  border: 1px solid black;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-template-rows: repeat(4,1fr);
+  grid-template-areas: ". score . next ."
+                      ". quiz quiz quiz ."
+                      ". quiz quiz quiz ."
+                      ". quiz quiz quiz ." ;
+}
+
+.quiz-buttons-wrapper {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-buttons-wrapper button {
+  margin: 10px 20px;
+}
+
+#start-game:hover {
+  background-color: var(--bb-light-green);
+}
+
+.score-card {
+  grid-area: score;
+  text-align: center;
+}
+
+#score {
+  margin-left: 5px;
+  font-size: 1.5rem;
+}
+
+.next-question {
+  grid-area: next;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-question-button {
+  color: var(--bb-med-green);
+  cursor: pointer;
+  font-size: 2rem;
+  margin: 0px 5px;
+}
+
+.question-container {
+  grid-area: quiz;
+}
+
+.question {
+  border: 1px solid black;
+  padding: 20px;
+  background-color: var(--bb-med-green);
+  color: white;
+  font-family: var(--sans-serif-font);
+  font-size: 1.3rem;
+}
+
+.answer {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.right-answer {
+  background-color: var(--bb-light-green);
+  color: white;
+}
+
+.wrong-answer {
+  background-color: red;
+  color: white;
+}
