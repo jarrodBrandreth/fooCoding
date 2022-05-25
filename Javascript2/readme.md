@@ -1,1 +1,1 @@
-second week javscript
+Javascript part 2
