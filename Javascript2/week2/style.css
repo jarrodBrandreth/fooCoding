@@ -2,7 +2,7 @@
   --main-font: 'Montserrat', sans-serif;
   --sub-font: 'Playfair Display', serif;
   font-family: var(--main-font);
-  --background-translucent: rgba(255, 255, 255, 0.93);
+  --background-translucent: #f4e7c5ee;
 }
 
 *,
@@ -25,26 +25,27 @@ img {
 .bookshelf {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: flex-end;
   row-gap: 20px;
   width: 80%;
-  margin: auto;
-  border: 20px solid #6f432a;
+  margin: 50px auto;
   padding: 15px;
+  border: 20px solid #6f432a;
   background-color: #deb887;
 }
 
 .bookshelf li {
   position: relative;
-  margin: 0px 15px;
+  margin: 0px 40px;
   flex-basis: 275px;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(6, auto);
+  grid-template-rows: repeat(8, auto);
 }
 
 .bookshelf li p {
+  text-align: center;
   padding: 5px;
 }
 
@@ -52,8 +53,8 @@ img {
   grid-area: 1/1/2/2;
   margin: 8px 8px 15px 8px;
   padding: 5px 7px;
-  border-top: 8px ridge sienna;
-  border-bottom: 8px ridge sienna;
+  border-top: 8px ridge #a0522d;
+  border-bottom: 8px ridge #a0522d;
   background-color: rgb(234, 181, 46);
   background: linear-gradient(0.4turn, #f1b940, #e7ae29, #e9b116, #f9c22d, #f7ca50);
   text-align: center;
@@ -65,7 +66,6 @@ img {
   grid-area: 2/1/3/2;
   margin-top: 10px;
   font-size: 1.2rem;
-  text-align: center;
   text-transform: uppercase;
   background-color: var(--background-translucent);
 }
@@ -73,7 +73,6 @@ img {
 .language {
   grid-area: 3/1/4/2;
   position: relative;
-  text-align: center;
   background-color: var(--background-translucent);
 }
 
@@ -89,7 +88,6 @@ img {
 .year_published {
   grid-area: 4/1/5/2;
   position: relative;
-  text-align: center;
   background-color: var(--background-translucent);
 }
 
@@ -105,7 +103,6 @@ img {
 .genre {
   grid-area: 5/1/6/2;
   position: relative;
-  text-align: center;
   background-color: var(--background-translucent);
 }
 
@@ -119,17 +116,11 @@ img {
 }
 
 .bookshelf li figure {
-  grid-area: 2/1/7/2;
+  grid-area: 2/1/9/2;
   position: relative;
   width: 100%;
-  cursor: pointer;
   filter: drop-shadow(5px 5px 4px #00000092);
 }
-
-.bookshelf li figure:hover {
-  transform: scale(1.05);
-}
-
 
 .bookshelf li figure::before {
   position: absolute;
@@ -137,6 +128,46 @@ img {
   background-color: transparent;
   width: 100%;
   height: 100%;
+}
+
+.bookshelf li .description {
+  background-color: #f4e7c5;
+  background-color: var(--background-translucent);
+  filter: drop-shadow(5px 5px 4px #00000092);
+  text-align: left;
+  border-radius: 0px 5px 5px 0px;
+  padding: 5px 5px 5px 10px;
+  width: 100%;
+  position: absolute;
+  left: 0%;
+  top: 30%;
+  display: none;
+}
+
+.bookshelf li:nth-child(odd) .about {
+  background-color: #f6a6ff;
+}
+
+.bookshelf li:nth-child(even) .about {
+  background-color: #c1e7e3;
+}
+
+.bookshelf li .about {
+  color: rgba(0, 0, 0, 0.723);
+  filter: drop-shadow(-5px 1px 6px #00000092);
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 5px 10px 15px 10px;
+  cursor: pointer;
+  position: absolute;
+  left: -18%;
+  top: 50%;
+  border-radius: 10px 10px 0px 0px;
+  transform: rotate(-0.25turn);
+}
+
+.bookshelf li .about:hover {
+  transform: rotate(-0.25turn) scale(1.1);
 }
 
 .goodreads-link {
@@ -149,16 +180,39 @@ img {
 }
 
 .goodreads-link:hover {
-  transform: scale(1.2);
+  transform: scale(1.05);
   transition: ease;
   font-weight: 600;
 }
 
-.appear {
+.bookshelf li .appear {
   opacity: 0;
   animation: appear-in 1s forwards;
   transition: ease;
   z-index: 5;
+}
+
+.bookshelf li .slide-in {
+  display: block;
+  animation: slide 0.5s forwards;
+  transition: ease;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(0%);
+    opacity: 0;
+  }
+
+  99% {
+    z-index: 0;
+  }
+
+  100% {
+    transform: translateX(100%);
+    z-index: 20;
+    opacity: 1;
+  }
 }
 
 @keyframes appear-in {
