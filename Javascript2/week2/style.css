@@ -3,6 +3,7 @@
   --sub-font: 'Playfair Display', serif;
   font-family: var(--main-font);
   --background-translucent: #f4e7c5ee;
+  --gold-gradient: linear-gradient(0.4turn, #f1b940, #e7ae29, #eed9a0, #f9c22d, #f7ca50);
 }
 
 *,
@@ -31,13 +32,13 @@ img {
   width: 80%;
   margin: 50px auto;
   padding: 15px;
-  border: 20px solid #6f432a;
+  border: 20px solid #704329;
   background-color: #deb887;
 }
 
 .bookshelf li {
   position: relative;
-  margin: 0px 40px;
+  margin: 0px 30px;
   flex-basis: 275px;
   display: grid;
   grid-template-columns: 1fr;
@@ -53,11 +54,11 @@ img {
   grid-area: 1/1/2/2;
   margin: 8px 8px 15px 8px;
   padding: 5px 7px;
-  border-top: 8px ridge #a0522d;
-  border-bottom: 8px ridge #a0522d;
-  background-color: rgb(234, 181, 46);
-  background: linear-gradient(0.4turn, #f1b940, #e7ae29, #e9b116, #f9c22d, #f7ca50);
+  border-top: 8px ridge #9f512d;
+  border-bottom: 8px ridge #9f512d;
+  background: var(--gold-gradient);
   text-align: center;
+  text-transform: capitalize;
   font-family: var(--sub-font);
   filter: drop-shadow(3px 3px 4px #00000092);
 }
@@ -224,3 +225,67 @@ img {
     opacity: 1;
   }
 }
+
+.form-container {
+  width: auto;
+  margin: 50px auto;
+}
+
+.user-form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(9, auto);
+  gap: 10px;
+  padding: 10px;
+  background-color: #c5e7c1;
+  border: 20px solid forestgreen;
+}
+
+.user-form h2 {
+  grid-area: span 1 / span 2;
+  text-align: center;
+}
+
+.user-form label {
+  grid-area: span 1 / span 1;
+  text-align: right;
+  padding: 5px;
+}
+
+.user-form input {
+  grid-area: span 1 / span 1;
+  max-width: 200px;
+  margin-right: auto;
+  padding-left: 5px;
+  border: 2px solid black;
+}
+
+.user-form button {
+  padding: 5px;
+  text-transform: uppercase;
+  background: var(--gold-gradient);
+  border-radius:5px;
+}
+
+.user-form button:active {
+  background: rgb(202, 165, 2);
+}
+
+#add-button {
+  grid-area: span 1 / span 2;
+  width: 80px;
+  margin: auto;
+}
+
+#remove-title {
+  text-align: center;
+  width: 300px;
+  margin: 10px 0px 10px auto;
+}
+
+#remove-button {
+  grid-area: 9/2/10/3;
+  width: 100px;
+  margin: 10px;
+}
+
