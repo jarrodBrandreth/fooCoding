@@ -83,7 +83,7 @@ img {
   font-size: 0.6em;
   position: absolute;
   left: 2%;
-  bottom: 5px; /* match padding of p tag*/
+  bottom: 5px;
 }
 
 .year_published {
@@ -143,6 +143,16 @@ img {
   left: 0%;
   top: 30%;
   display: none;
+}
+
+.bookshelf li .description::before {
+  content: 'description';
+  position: relative;
+  display: block;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.6em;
 }
 
 .bookshelf li:nth-child(odd) .about {
