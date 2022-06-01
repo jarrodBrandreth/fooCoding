@@ -200,7 +200,6 @@ const createBooksList = (obj) => {
     appendElements(book, bookInfo);
     bookShelf.appendChild(book);
   }
-
   return bookShelf;
 };
 
@@ -231,8 +230,6 @@ const addLinks = (obj) => {
 
 const showBookInfo = (e) => {
   const para = e.composedPath()[1].children;
-  //console.log(e.composedPath()[1].children);
-  //console.log(e.path[1].children);
   para[5].classList.add('slide-in');
   for (let i = 1; i < para.length - 4; i++) {
     para[i].classList.add('appear');
@@ -251,14 +248,130 @@ const removeBookInfo = (e) => {
   e.target.addEventListener('click', showBookInfo);
 };
 
-/*
- * Creating the DOM
- */
-const pageContainer = document.querySelector('.page-container');
-pageContainer.appendChild(createBooksList(bookTitles));
-addCoverImg(bookImgSrc);
-addLinks(goodReadsLink);
-const aboutTab = document.querySelectorAll('.about');
-aboutTab.forEach((tab) => {
-  tab.addEventListener('click', showBookInfo);
-});
+const createBookShelf = () => {
+  const pageContainer = document.querySelector('.page-container');
+  while (pageContainer.firstChild) {
+    pageContainer.removeChild(pageContainer.firstChild);
+  }
+  pageContainer.appendChild(createBooksList(bookTitles));
+  addCoverImg(bookImgSrc);
+  addLinks(goodReadsLink);
+  const aboutTab = document.querySelectorAll('.about');
+  aboutTab.forEach((tab) => {
+    tab.addEventListener('click', showBookInfo);
+  });
+};
+
+const generateUserBookForm = () => {
+  const userForm = document.createElement('div');
+  userForm.classList.add('user-form');
+
+  const heading = document.createElement('h2');
+  heading.innerText = 'Insert Your Own Book';
+  userForm.appendChild(heading);
+
+  const propStrings = ['title', 'author', 'language', 'year', 'genre', 'description'];
+  for (let i = 0; i < propStrings.length; i++) {
+    const label = document.createElement('label');
+    const input = document.createElement('input');
+    switch (propStrings[i]) {
+      case 'title':
+        input.setAttribute('placeholder', 'eg. Harry Potter');
+        break;
+      case 'author':
+        input.setAttribute('placeholder', 'eg. Jane Doe');
+        break;
+      case 'language':
+        input.setAttribute('placeholder', 'eg. English');
+        break;
+      case 'year':
+        input.setAttribute('placeholder', 'eg. 2022');
+        break;
+      case 'genre':
+        input.setAttribute('placeholder', 'eg. Fiction');
+        break;
+      default:
+        break;
+    }
+    label.setAttribute('for', `user-${propStrings[i]}`);
+    label.innerText = propStrings[i];
+    input.setAttribute('id', `user-${propStrings[i]}`);
+    input.setAttribute('name', `user-${propStrings[i]}`);
+    input.setAttribute('type', 'text');
+    userForm.appendChild(label);
+    userForm.appendChild(input);
+  }
+  const buttons = ['add', 'remove'];
+  for (let i = 0; i < buttons.length; i++) {
+    const button = document.createElement('button');
+    button.setAttribute('id', `${buttons[i]}-button`);
+    button.innerText = buttons[i];
+    userForm.appendChild(button);
+  }
+  const removeInput = document.createElement('input');
+  removeInput.setAttribute('id', 'remove-title');
+  removeInput.setAttribute('type', 'text');
+  removeInput.setAttribute('placeholder', 'insert title to remove eg. animal farm');
+  userForm.appendChild(removeInput);
+
+  const formContainer = document.querySelector('.form-container');
+  formContainer.appendChild(userForm);
+};
+
+const createNewBook = () => {
+  //refactor with loop
+  let bookTitle = document.getElementById('user-title').value;
+  let bookAuthor = document.getElementById('user-author').value;
+  let bookLanguage = document.getElementById('user-language').value;
+  let bookYear = document.getElementById('user-year').value;
+  let bookGenre = document.getElementById('user-genre').value;
+  let bookDescription = document.getElementById('user-description').value;
+  if (!bookTitle) bookTitle = 'Hello World';
+  if (!bookAuthor) bookAuthor = 'Jane Doe';
+  if (!bookLanguage) bookLanguage = 'English';
+  if (!bookYear) bookYear = '2022';
+  if (!bookGenre) bookGenre = 'Fiction';
+  if (!bookDescription)
+    bookDescription = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultrices eros in cursus turpis massa tincidunt dui ut ornare. Gravida neque convallis a cras semper. Pharetra sit amet aliquam id. At auctor urna nunc id. Ac tincidunt vitae semper quis lectus nulla. Ac turpis egestas sed tempus urna et pharetra pharetra. Adipiscing tristique risus nec feugiat in fermentum posuere. Vel elit scelerisque mauris pellentesque pulvinar pellentesque habitant morbi. Platea dictumst quisque sagittis purus sit.`;
+  const objKey = bookTitle.replaceAll(' ', '_');
+  const newBook = {
+    title: `${bookTitle}`,
+    author: `${bookAuthor}`,
+    language: `${bookLanguage}`,
+    year_published: `${bookYear}`,
+    genre: `${bookGenre}`,
+    description: `${bookDescription}`,
+    about: 'about',
+  };
+
+  bookTitles[`${objKey}`] = newBook;
+  bookImgSrc[`${objKey}`] = './book_covers/generic_book.png';
+  goodReadsLink[`${objKey}`] = 'https://www.goodreads.com/';
+
+  const userFormInputs = document.querySelector('.user-form').getElementsByTagName('input');
+  for (let i = 0; i < userFormInputs.length; i++) {
+    userFormInputs[i].value = '';
+  }
+
+  createBookShelf();
+};
+
+const removeBook = () => {
+  let removeValue = document.getElementById('remove-title').value;
+  const prop = removeValue.toLowerCase().replaceAll(' ', '_');
+  if (bookTitles.hasOwnProperty(prop)) {
+    delete bookTitles[prop];
+    delete bookImgSrc[prop];
+    delete goodReadsLink[prop];
+    createBookShelf();
+  } else {
+    alert('no title by that name check spelling');
+  }
+};
+
+createBookShelf();
+generateUserBookForm();
+const addButton = document.getElementById('add-button');
+addButton.addEventListener('click', createNewBook);
+const removeButton = document.getElementById('remove-button');
+removeButton.addEventListener('click', removeBook);
