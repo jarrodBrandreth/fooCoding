@@ -1,0 +1,146 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 400px;
+  margin: 50px auto;
+  padding: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #c9c9c9;
+}
+
+#background-change {
+  background-color: #fdfd97;
+}
+
+.container > div {
+  margin-bottom: 20px;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background-color: inherit;
+}
+
+.back,
+.front {
+  position: absolute;
+  width: 100%;
+  background-color: inherit;
+}
+
+.back-dance {
+  transition: ease;
+  animation-name: back-dance;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+}
+
+.front-dance {
+  transition: ease;
+  animation-name: front-dance;
+  animation-duration: 6s;
+  animation-fill-mode: forwards;
+}
+
+#dance-btn {
+  cursor: pointer;
+  width: max-content;
+  margin: 5px 25%;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  background: linear-gradient(0.75turn, #cc99c9, #9ec1cf, #9ee09e, #fdfd97, #feb144, #ff6663);
+}
+
+#dance-btn:hover {
+  transform: scale(1.1);
+}
+
+@keyframes front-dance {
+  5% {
+    visibility: hidden;
+  }
+
+  10% {
+    visibility: hidden;
+  }
+
+  15% {
+    visibility: visible;
+  }
+
+  25% {
+    visibility: hidden;
+  }
+
+  30% {
+    visibility: hidden;
+  }
+
+  35% {
+    visibility: visible;
+    transform: rotate(0turn);
+  }
+
+  40% {
+    transform: rotate(0.05turn);
+  }
+
+  45% {
+    transform: rotate(-0.05turn);
+  }
+
+  50% {
+    transform: rotate(0.05turn);
+  }
+
+  55% {
+    transform: rotate(-0.05turn);
+  }
+
+  60% {
+    transform: rotate(0turn);
+    visibility: hidden;
+  }
+
+  90% {
+    visibility: hidden;
+  }
+}
+
+@keyframes back-dance {
+  55% {
+    transform: rotate(0turn);
+  }
+  65% {
+    transform: rotate(0turn);
+  }
+
+  70% {
+    transform: rotate(0.05turn);
+  }
+
+  75% {
+    transform: rotate(-0.05turn);
+  }
+
+  80% {
+    transform: rotate(0.05turn);
+  }
+
+  83% {
+    transform: rotate(-0.05turn);
+  }
+
+  90% {
+    transform: rotate(0turn);
+  }
+}
