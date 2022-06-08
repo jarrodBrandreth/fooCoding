@@ -20,9 +20,10 @@ console.log(doubleOddNumbers(myNumbers)); // ==> [2, 6]
 Rewrite the above doubleOddNumbers function using map and filter; don't forget to use =>.
 */
 
-const doubleOddNumbers = (arr) => arr.filter((num) => num % 2 !== 0).map((num) => num * 2);
-const myNumbers = [1, 2, 3, 4];
+const doubleOddNumbers = numbers => numbers.filter(num => num % 2 !== 0).map(num => num * 2);
 
+const myNumbers = [1, 2, 3, 4];
+console.log(doubleOddNumbers(myNumbers));
 /*
   -1.2 
 */
@@ -67,7 +68,7 @@ const tuesday = [
     duration: 40,
   },
 ];
-
+/* OLD CODE BEFORE TESTS
 const maartjesTasks = monday.concat(tuesday);
 const maartjesHourlyRate = 20;
 
@@ -81,3 +82,22 @@ const computeEarnings = (tasks, hourlyRate) => {
 };
 
 console.log(computeEarnings(maartjesTasks, maartjesHourlyRate));
+*/
+
+const maartjesTasks = monday.concat(tuesday);
+const maartjesHourlyRate = 20;
+
+const computeEarnings = (tasks, hourlyRate) => {
+  const money = tasks
+    .map(task => task.duration / 60)
+    .filter(hours => hours >= 2)
+    .reduce((earnings, hours) => earnings + hours * hourlyRate, 0);
+  return money;
+};
+
+// eslint-disable-next-line no-unused-vars
+const earnings = computeEarnings(maartjesTasks, maartjesHourlyRate);
+
+// add code to convert `earnings` to a string rounded to two decimals (euro cents)
+
+console.log(`Maartje has earned €${earnings.toFixed(2)}`);
