@@ -152,10 +152,12 @@ const createBookElement = (obj, headingElement, otherElementType) => {
 
 /*
  * helper function that appends a list of elements in an array to the parent
- */
+  not needed anymore replaced with append method - line 171
+ 
 const appendElements = (parent, elements) => {
   elements.forEach((element) => parent.appendChild(element));
 };
+*/
 
 /*
  * Takes an object(bookTitles) with its properties as objects(thebooks) and creates a ul and appends that object(bookTitles) properties(the books) to li elements
@@ -168,7 +170,8 @@ const createBooksList = (obj) => {
     const book = document.createElement('li');
     book.setAttribute('id', key);
     const bookInfo = createBookElement(obj[key], 'h2', 'p');
-    appendElements(book, bookInfo);
+    book.append(...bookInfo);
+    //appendElements(book, bookInfo);
     bookShelf.appendChild(book);
   }
   return bookShelf;
